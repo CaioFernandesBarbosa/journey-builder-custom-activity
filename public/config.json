@@ -8,11 +8,11 @@
   "type": "REST",
   "lang": {
     "en-US": {
-      "name": "Send Whatsapp HSM DEV",
+      "name": "Whatsapp HSM Take",
       "description": "HSM template submission via WhatsApp."
     },
     "pt-BR": {
-      "name": "Send Whatsapp HSM DEV",
+      "name": "Whatsapp HSM Take",
       "description": "Envio de template HSM via WhatsApp."
     }
   },

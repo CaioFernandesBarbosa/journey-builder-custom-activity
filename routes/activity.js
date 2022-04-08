@@ -98,7 +98,7 @@ exports.execute = function (req, res) {
                 "uri": `lime://wa.gw.msging.net/accounts/+${phoneNumber}`
             }
 
-            axios.post('https://msging.net/commands', post_save, { headers: headers }).then((res) => {
+            axios.post('https://bancopan.http.msging.net/commands', post_save, { headers: headers }).then((res) => {
                 const post_hsm = {
                     "id": guid_id,
                     "to": `${phoneNumber}@wa.gw.msging.net`,
@@ -106,7 +106,7 @@ exports.execute = function (req, res) {
                     "content": {
                         "type": "hsm",
                         "hsm": {
-                            "namespace": "0cf88f37_b88f_d3bd_b5be_f22588aabf89",
+                            "namespace": "beb7e8c5_c488_411a_9d90_4974ba197671",
                             "element_name": templateName,
                             "language": {
                                 "policy": "deterministic",
@@ -117,7 +117,7 @@ exports.execute = function (req, res) {
                     }
                 }
 
-                axios.post('https://msging.net/messages', post_hsm, { headers: headers }).then((res) => {
+                axios.post('https://bancopan.http.msging.net/messages', post_hsm, { headers: headers }).then((res) => {
                     console.log(`Success send whatsapp to ${phoneNumber}`);
                 }).catch((err) => {
                     console.error(`ERROR send whatsapp to ${phoneNumber}: ${err}`)

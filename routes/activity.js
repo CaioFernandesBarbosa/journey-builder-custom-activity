@@ -75,7 +75,7 @@ exports.save = function (req, res) {
 
 exports.execute = function (req, res) {
     logData(req);
-    var jwtSecret = "MK80E-H9CfAw76Z0PHzzXO0HCAW9HzZD0omCWQmIdyu0c-vwJBb8c3P5jZ-HdsHrNUdX4ODjmUMEgKNpOnOyxU0e1Ni9bIkCIhRqZkQBm0pnEjI6LZUbllZSZ9AOzRsNs_ylfamwaBCU43LBXSznFWb3M6BUhNwZj1ISq9pnNqBtVmIq6lKOF1jIcYQvG_p7y_VirMy7tanqzM8-hSJHsejn7LY6sD8kFcbTwdZfrtFwk9cTkaV4-jJN7YzG8w2"
+    var jwtSecret = "MK80E-H9CfAw76Z0PHzzXO0HCAW9HzZD0omCWQmIdyu0c-vwJBb8c3P5jZ-HdsHrNUdX4ODjmUMEgKNpOnOyxU0e1Ni9bIkCIhRqZkQBm0pnEjI6LZUbllZSZ9AOzRsNs_ylfamwaBCU43LBXSznFWb3M6BUhNwZj1ISq9pnNqBtVmIq6lKOF1jIcYQvG_p7y_VirMy7tanqzM8-hSJHsejn7LY6sD8kFcbTwdZfrtFwk9cTkaV4-jJN7YzG8w2";
     //JWT(req.body, process.env.jwtSecret, (err, decoded) => {
     JWT(req.body, jwtSecret, (err, decoded) => {
         if (err) {

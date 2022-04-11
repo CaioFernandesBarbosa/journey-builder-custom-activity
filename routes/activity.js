@@ -108,6 +108,7 @@ exports.execute = function (req, res) {
             const guid_id = uuidv4();
 
             console.log('guid_id', guid_id);
+            console.log('headers', headers);
 
             const post_save = {
                 "id": guid_id,
@@ -116,8 +117,10 @@ exports.execute = function (req, res) {
                 "uri": `lime://wa.gw.msging.net/accounts/+${phoneNumber}`
             }
 
+            console.log('post_save', post_save);
+
             axios.post('https://bancopan.http.msging.net/commands', post_save, { headers: headers }).then((res) => {
-                console.log('Entrou valid');
+                //console.log('Entrou valid');
                 const post_hsm = {
                     "id": guid_id,
                     "to": `${phoneNumber}@wa.gw.msging.net`,

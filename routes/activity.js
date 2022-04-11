@@ -102,7 +102,8 @@ exports.execute = function (req, res) {
 
             const headers = {
                 'Content-Type': 'application/json',
-                'Authorization': `Key ${process.env.BLIPAUTHORIZATIONKEY}`
+                //'Authorization': `Key ${process.env.BLIPAUTHORIZATIONKEY}`
+                'Authorization': "Key YmFuY29wYW5yb3V0ZXJwcmQ6RzhrUldHcldjMlhLTTJZUmhXczI="
             }
 
             const guid_id = uuidv4();

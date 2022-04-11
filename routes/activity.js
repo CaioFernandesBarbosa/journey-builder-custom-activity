@@ -6,7 +6,7 @@ const util = require('util');
 const axios = require('axios');
 
 exports.logExecuteData = [];
-
+/*
 var connection = new Postmonger.Session();
 
 connection.trigger('ready');
@@ -19,7 +19,7 @@ connection.on('clickedNext', function(){
     var TesteCaio = JSON.parse(document.getElementById('TesteCaio').value)
     connection.trigger('updateActivity', TesteCaio)
 });
-
+*/
 function logData(req) {
     exports.logExecuteData.push({
         body: req.body,
@@ -62,18 +62,18 @@ function logData(req) {
 
 exports.edit = function (req, res) {
     console.log('edit request');
-    // logData(req);
+    logData(req);
     res.send(200, 'Edit');
 };
 
 exports.save = function (req, res) {
     console.log('save request');
-    // logData(req);
+    logData(req);
     res.send(200, 'Save');
 };
 
 exports.execute = function (req, res) {
-    // logData(req);
+    logData(req);
     JWT(req.body, process.env.jwtSecret, (err, decoded) => {
         if (err) {
             console.error(err);

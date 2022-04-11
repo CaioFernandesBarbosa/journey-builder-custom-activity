@@ -138,15 +138,15 @@ define(function (require) {
     }
 
     function save() {
-        var parameters = parameterList.split(';');
-        parameters = parameters.map(parameterName => `{{Event.${eventDefinitionKey}.\"${parameterName}\"}}`);
+        //var parameters = parameterList.split(';');
+        //parameters = parameters.map(parameterName => `{{Event.${eventDefinitionKey}.\"${parameterName}\"}}`);
 
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
             "templateName": templateCode,
-            //"contactIdentifier": "{{Contact.Key}}",
+            "contactIdentifier": "{{Contact.Key}}",
             "phoneNumber": `{{Event.${eventDefinitionKey}.\"${phoneFieldName}\"}}`,
-            "parameters": parameters,
+            "parameters": "",
             "account": whatsappAccount
         }];
 

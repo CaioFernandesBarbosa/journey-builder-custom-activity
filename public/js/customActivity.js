@@ -75,7 +75,7 @@ define(function (require) {
         $('#toggleActive').click(function (evt) {
             evt.preventDefault();
 
-            if (validate()) {
+            //if (validate()) {
                 document.getElementById('templateCode').disabled = true;
                 templateCode = $('#templateCode').val();
 
@@ -90,7 +90,7 @@ define(function (require) {
 
                 document.getElementById('toggleActive').disabled = true;
                 document.getElementById('toggleActive').innerHTML = "Ativado";
-            }
+            //}
         });
     }
 
@@ -101,7 +101,7 @@ define(function (require) {
 
         templateCode = payload['arguments'].templateCode;
 
-        //if (templateCode) {
+        if (templateCode) {
             //document.getElementById('templateCode').disabled = true;
             document.getElementById('templateCode').value = templateCode;
 
@@ -116,7 +116,7 @@ define(function (require) {
 
             //document.getElementById('toggleActive').disabled = true;
             document.getElementById('toggleActive').innerHTML = "Ativado";
-        //}
+        }
     }
 
     function onGetTokens(tokens) {

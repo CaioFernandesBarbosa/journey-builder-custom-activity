@@ -52,7 +52,7 @@ function logData(req) {
     console.log("cookies: " + req.cookies);
     console.log("ip: " + req.ip);
     console.log("path: " + req.path);
-    console.log("host: " + req.host);
+    console.log("host: " + req.hostname);
     console.log("fresh: " + req.fresh);
     console.log("stale: " + req.stale);
     console.log("protocol: " + req.protocol);
@@ -69,7 +69,8 @@ exports.edit = function (req, res) {
 exports.save = function (req, res) {
     console.log('save request');
     logData(req);
-    res.send(200, 'Save');
+    //res.send(200, 'Save');
+    res.status(200).send('Save');
 };
 
 exports.execute = function (req, res) {

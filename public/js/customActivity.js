@@ -138,21 +138,21 @@ define(function (require) {
     }
 
     function save() {
-        //var parameters = parameterList.split(';');
-        //parameters = parameters.map(parameterName => `{{Event.${eventDefinitionKey}.\"${parameterName}\"}}`);
+        var parameters = parameterList.split(';');
+        parameters = parameters.map(parameterName => `{{Event.${eventDefinitionKey}.\"${parameterName}\"}}`);
 
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
             "templateName": templateCode,
             "contactIdentifier": "{{Contact.Key}}",
             "phoneNumber": `{{Event.${eventDefinitionKey}.\"${phoneFieldName}\"}}`,
-            "parameters": "",
+            "parameters": parameters,
             "account": whatsappAccount
         }];
 
         payload['metaData'].isConfigured = true;
 
-        // console.log('payload', JSON.stringify(payload));
+        console.log('payload', JSON.stringify(payload));
 
         connection.trigger('updateActivity', payload);
     }

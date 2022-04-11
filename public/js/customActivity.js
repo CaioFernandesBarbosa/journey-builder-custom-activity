@@ -106,13 +106,13 @@ define(function (require) {
             document.getElementById('templateCode').value = templateCode;
 
             document.getElementById('phoneFieldName').disabled = true;
-            document.getElementById('phoneFieldName').value = templateCode;
+            document.getElementById('phoneFieldName').value = payload['arguments'].phoneNumber;
 
             document.getElementById('parameterList').disabled = true;
-            document.getElementById('parameterList').value = templateCode;
+            document.getElementById('parameterList').value = payload['arguments'].parameterList;
 
             document.getElementById('whatsappAccount').disabled = true;
-            document.getElementById('whatsappAccount').value = templateCode;
+            document.getElementById('whatsappAccount').value = payload['arguments'].whatsappAccount;
 
             document.getElementById('toggleActive').disabled = true;
             document.getElementById('toggleActive').innerHTML = "Ativado";

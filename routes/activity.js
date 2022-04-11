@@ -107,6 +107,8 @@ exports.execute = function (req, res) {
 
             const guid_id = uuidv4();
 
+            console.log('guid_id', guid_id);
+
             const post_save = {
                 "id": guid_id,
                 "to": "postmaster@wa.gw.msging.net",
@@ -115,6 +117,7 @@ exports.execute = function (req, res) {
             }
 
             axios.post('https://bancopan.http.msging.net/commands', post_save, { headers: headers }).then((res) => {
+                console.log('Entrou valid');
                 const post_hsm = {
                     "id": guid_id,
                     "to": `${phoneNumber}@wa.gw.msging.net`,

@@ -90,6 +90,8 @@ define(function (require) {
 
                 document.getElementById('toggleActive').disabled = true;
                 document.getElementById('toggleActive').innerHTML = "Ativado";
+
+                document.getElementById('TesteCaio').value = "foi"
             //}
         });
     }

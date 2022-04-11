@@ -127,13 +127,13 @@ exports.execute = function (req, res) {
                     "to": `${phoneNumber}@wa.gw.msging.net`,
                     "type": "application/json",
                     "content": {
-                        "type": "hsm",
-                        "hsm": {
+                        "type": "template",
+                        "template": {
                             "namespace": "beb7e8c5_c488_411a_9d90_4974ba197671",
-                            "element_name": templateName,
+                            "name": templateName,
                             "language": {
-                                "policy": "deterministic",
                                 "code": "pt_BR"
+                                ,"policy": "deterministic"
                             },
                             "localizable_params": parameters.map(x => { return { 'default': x } })
                         }

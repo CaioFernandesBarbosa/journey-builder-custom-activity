@@ -19,7 +19,26 @@ define(function (require) {
     connection.on('requestedTokens', onGetTokens);
     connection.on('requestedEndpoints', onGetEndpoints);
     connection.on('requestedInteraction', requestedInteractionHandler);
-    connection.on('clickedNext', save);
+    //connection.on('clickedNext', save);
+    connection.on('clickedNext', function(){
+        var parameters = parameterList.split(';');
+        parameters = parameters.map(parameterName => `{{Event.${eventDefinitionKey}.\"${parameterName}\"}}`);
+
+        payload['arguments'].execute.inArguments = [{
+            "tokens": authTokens,
+            "templateName": templateCode,
+            "contactIdentifier": "{{Contact.Key}}",
+            "phoneNumber": `{{Event.${eventDefinitionKey}.\"${phoneFieldName}\"}}`,
+            "parameters": parameters,
+            "account": whatsappAccount
+        }];
+
+        payload['metaData'].isConfigured = true;
+
+        console.log('payload', JSON.stringify(payload));
+
+        connection.trigger('updateActivity', payload);
+    });
 
     /* [ Form Validate ] ================================================================== */
 
@@ -75,7 +94,7 @@ define(function (require) {
         $('#toggleActive').click(function (evt) {
             evt.preventDefault();
 
-            //if (validate()) {
+            if (validate()) {
                 document.getElementById('templateCode').disabled = true;
                 templateCode = $('#templateCode').val();
 
@@ -91,8 +110,8 @@ define(function (require) {
                 document.getElementById('toggleActive').disabled = true;
                 document.getElementById('toggleActive').innerHTML = "Ativado";
 
-                document.getElementById('TesteCaio').value = "foi"
-            //}
+                //document.getElementById('TesteCaio').value = "foi"
+            }
         });
     }
 

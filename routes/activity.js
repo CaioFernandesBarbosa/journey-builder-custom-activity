@@ -7,6 +7,19 @@ const axios = require('axios');
 
 exports.logExecuteData = [];
 
+var connection = new Postmonger.Session();
+
+connection.trigger('ready');
+
+connection.on('initActivity', function( data ){
+        document.getElementById('TesteCaio').value = JSON.stringify(data,null,2);
+});
+
+connection.on('clickedNext', function(){
+    var TesteCaio = JSON.parse(document.getElementById('TesteCaio').value)
+    connection.trigger('updateActivity', TesteCaio)
+});
+
 function logData(req) {
     exports.logExecuteData.push({
         body: req.body,

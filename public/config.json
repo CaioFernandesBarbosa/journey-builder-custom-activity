@@ -37,7 +37,7 @@
       "useJwt": true
     },
     "publish": {
-      "url": "https://jb-sfmc-custom-activity.herokuapp.com//journeybuilder/publish",
+      "url": "https://jb-sfmc-custom-activity.herokuapp.com/journeybuilder/publish",
       "verb": "POST",
       "useJwt": true
     },

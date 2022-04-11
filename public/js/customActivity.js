@@ -144,7 +144,7 @@ define(function (require) {
         payload['arguments'].execute.inArguments = [{
             "tokens": authTokens,
             "templateName": templateCode,
-            "contactIdentifier": "{{Contact.Key}}",
+            //"contactIdentifier": "{{Contact.Key}}",
             "phoneNumber": `{{Event.${eventDefinitionKey}.\"${phoneFieldName}\"}}`,
             "parameters": parameters,
             "account": whatsappAccount
